@@ -21,9 +21,9 @@ before_install:
   - chmod +x gradlew
 
 before_deploy:
-  - zip -r springboot-webservice *
+  - zip -r spring-portfolio *
   - mkdir -p deploy
-  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+  - mv spring-portfolio.zip deploy/spring-portfolio.zip
 
 deploy:
   - provider: s3
