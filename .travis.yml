@@ -19,9 +19,9 @@ script: "./gradlew clean build"
 # gradlew 권한설정
 before_install:
   - chmod +x gradlew
-  - zip -r spring-portpolio *
+  - zip -r spring-portfolio *
   - mkdir -p deploy
-  - mv spring-portpolio.zip deploy/spring-portpolio.zip
+  - mv spring-portfolio.zip deploy/spring-portfolio.zip
 
 deploy:
   - provider: s3
