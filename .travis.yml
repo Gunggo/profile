@@ -19,9 +19,9 @@ script: "./gradlew clean build"
 # gradlew 권한설정
 before_install:
   - chmod +x gradlew
-  - zip -r spring-portfolio *
-  - mkdir -p deploy
-  - mv spring-portfolio.zip deploy/spring-portfolio.zip
+#  - zip -r spring-portfolio *
+#  - mkdir -p deploy
+#  - mv spring-portfolio.zip deploy/spring-portfolio.zip
 
 deploy:
   - provider: s3
@@ -31,7 +31,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
-    local_dir: deploy # before_deploy에서 생성한 디렉토리 내용들만 S3로 전송
+#    local_dir: deploy # before_deploy에서 생성한 디렉토리 내용들만 S3로 전송
     wait-until-deployed: true
     on:
       repo: Gunggo/profile #Github 주소
