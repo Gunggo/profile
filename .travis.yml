@@ -19,9 +19,9 @@ script: "./gradlew clean build"
 # gradlew 권한설정
 before_install:
   - chmod +x gradlew
-  - zip -r springboot-webservice *
+  - zip -r spring-portpolio *
   - mkdir -p deploy
-  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+  - mv spring-portpolio.zip deploy/spring-portpolio.zip
 
 # CI 실행 완료시 메일로 알람
 notifications:
@@ -37,7 +37,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
-    local_dir: deploy # before_deploy에서 생성한 디렉토리
+    local_dir: deploy # before_deploy에서 생성한 디렉토리 내용들만 S3로 전송
     wait-until-deployed: true
     on:
       repo: jojoldu/springboot-webservice #Github 주소
