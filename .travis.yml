@@ -19,9 +19,11 @@ script: "./gradlew clean build"
 # gradlew 권한설정
 before_install:
   - chmod +x gradlew
-  - zip -r spring-portfolio *
+
+before_deploy:
+  - zip -r springboot-webservice *
   - mkdir -p deploy
-  - mv spring-portfolio.zip deploy/spring-portfolio.zip
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip
 
 deploy:
   - provider: s3
