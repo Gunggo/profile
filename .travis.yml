@@ -7,22 +7,16 @@ branches:
     - master
 
 # Travis CI 서버의 Home
-# Gradle을 통해 의존성 받을 시 해당 디렉토리에 캐시하여 다음 배포시부터 같은 의존성은 받지 않음
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-# 위에서 설정한 브랜치에서(master) push되었을 때 수행하는 명령어
 script: "./gradlew clean build"
 
 # gradlew 권한설정
 before_install:
   - chmod +x gradlew
-  # 현재 위치의 모든 파일을 뒤에 이름으로 압축(zip)
-  - zip -r spring-portpolio *
-  - mkdir -p deploy
-  - mv spring-portpolio.zip deploy/spring-portpolio.zip
 
 # CI 실행 완료시 메일로 알람
 notifications:
@@ -34,12 +28,11 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: spring-portfolio # AWS S3 버킷
+    bucket: springboot-webservice-deploy # 6-3-3에서 생성한 S3 버킷
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
-    local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
     on:
-      repo: Gunggo/profile #Github 주소
+      repo: jojoldu/springboot-webservice #Github 주소
       branch: master
