@@ -19,9 +19,10 @@ script: "./gradlew clean build"
 # gradlew 권한설정
 before_install:
   - chmod +x gradlew
-  - zip -r springboot-webservice *
+  # 현재 위치의 모든 파일을 뒤에 이름으로 압축(zip)
+  - zip -r spring-portpolio *
   - mkdir -p deploy
-  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+  - mv spring-portpolio.zip deploy/spring-portpolio.zip
 
 # CI 실행 완료시 메일로 알람
 notifications:
