@@ -23,12 +23,6 @@ before_install:
   - mkdir -p deploy
   - mv spring-portpolio.zip deploy/spring-portpolio.zip
 
-# CI 실행 완료시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - gusehdqkd@gmail.com
-
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
@@ -56,3 +50,9 @@ deploy:
     on:
       repo: Gunggo/profile
       branch: master
+
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - gusehdqkd@gmail.com
