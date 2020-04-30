@@ -18,7 +18,7 @@ script: "./gradlew clean build"
 
 # gradlew 권한설정
 before_install:
-#  - chmod +x gradlew
+  - chmod +x gradlew
   - zip -r spring-portfolio *
   - mkdir -p deploy
   - mv spring-portfolio.zip deploy/spring-portfolio.zip
