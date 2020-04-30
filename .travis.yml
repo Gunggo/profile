@@ -7,16 +7,21 @@ branches:
     - master
 
 # Travis CI 서버의 Home
+# Gradle을 통해 의존성 받을 시 해당 디렉토리에 캐시하여 다음 배포시부터 같은 의존성은 받지 않음
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
+# 위에서 설정한 브랜치에서(master) push되었을 때 수행하는 명령어
 script: "./gradlew clean build"
 
 # gradlew 권한설정
 before_install:
   - chmod +x gradlew
+  - zip -r springboot-webservice *
+  - mkdir -p deploy
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip
 
 # CI 실행 완료시 메일로 알람
 notifications:
@@ -32,6 +37,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
     on:
       repo: jojoldu/springboot-webservice #Github 주소
