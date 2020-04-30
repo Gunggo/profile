@@ -33,12 +33,12 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: springboot-webservice-deploy # 6-3-3에서 생성한 S3 버킷
+    bucket: spring-portfolio # S3 버킷명
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
     local_dir: deploy # before_deploy에서 생성한 디렉토리 내용들만 S3로 전송
     wait-until-deployed: true
     on:
-      repo: jojoldu/springboot-webservice #Github 주소
+      repo: Gunggo/profile #Github 주소
       branch: master
