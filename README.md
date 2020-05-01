@@ -7,7 +7,10 @@
 ***
 **2020-04-27**
 >hosting.kr에서 gusehdqkd.com 도메인 구입   
->AWS Certificate Manager이용 SSL 발급 및 적용
+>AWS Certificate Manager 이용 SSL 발급 및 적용
 ***
 **2020-04-30**
 >자동 배포화를 위한 github Travis CI 연동
+***
+**2020-05-01**
+>Nginx이용 무중단 배포 작업중
