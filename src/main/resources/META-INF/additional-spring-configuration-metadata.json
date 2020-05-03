@@ -4,5 +4,10 @@
       "name": "spring.http.encoding.enable",
       "type": "java.lang.String",
       "description": "Description for spring.http.encoding.enable."
-  }
-] }
+    },
+    {
+      "name": "spring.http.encoding.enable",
+      "type": "java.lang.String",
+      "description": "Description for spring.http.encoding.enable."
+    }
+  ] }
