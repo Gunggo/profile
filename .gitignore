@@ -3,6 +3,7 @@
 !gradle/wrapper/gradle-wrapper.jar
 /out
 scp.sh
+real-application.yml
 ### STS ###
 .apt_generated
 .classpath
