@@ -9,7 +9,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 group = 'com.study'
-version = '0.0.2'
+version = '0.0.3'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -27,6 +27,7 @@ repositories {
 }
 
 dependencies {
+    compile 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
