@@ -17,4 +17,5 @@
 ***
 **2020-05-03**
 >무중단 배포작업 이어서 작업중
+>application.properties => application.yml로 변경
 >포트폴리오 소개내용 수정

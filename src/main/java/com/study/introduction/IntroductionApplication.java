@@ -9,7 +9,7 @@ public class IntroductionApplication {
 
     public static final String APPLCATION_LOCATIONS = "spring.config.location=" +
             "classpath:application.yml," +
-            "/app/config/spring-portfolio/real-application.yml";
+            "classpath:real-application.yml";
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(IntroductionApplication.class)
