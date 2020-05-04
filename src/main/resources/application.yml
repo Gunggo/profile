@@ -5,7 +5,6 @@ spring:
 
 # local 환경
 ---
-
 spring:
   profiles: local
   thymeleaf:
