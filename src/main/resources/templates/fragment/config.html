@@ -1,0 +1,55 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <!--configFragment-->
+    <th:block th:fragment="configFragment">
+        <head>
+
+            <title>IamBD</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- Common css, js library -->
+            <!--  WEBFONT -->
+            <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,600|Poppins:400,500,700" rel="stylesheet" type="text/css">
+
+            <!-- ICON FONT -->
+            <link rel="stylesheet" th:href="@{/assets/icons/styles.css}">
+
+            <!-- Third Party CSS including Bootstrap -->
+            <link rel="stylesheet" th:href="@{/css/third-party.css}">
+
+            <!-- STYLESHEETS -->
+            <link rel="stylesheet" th:href="@{/css/styles.css}">
+            <link rel="stylesheet" th:href="@{/css/responsive.css}">
+
+            <!--[if lt IE 9] -->
+            <script defer th:src="@{/js/html5shiv.js}"></script>
+            <!--[endif]-->
+
+            <!-- =========================
+             JS SCRIPTS
+            ============================== -->
+            <script defer th:src="@{/js/jquery-1.11.3.min.js}"></script>
+            <script defer th:src="@{/js/third-party-scripts.js}"></script>
+            <script defer th:src="@{/js/custom.js}"></script>
+            <script defer th:src="@{/js/bootstrap.min.js}"></script>
+            <script defer th:src="@{/js/owl.carousel.min.js}"></script>
+            <script defer th:src="@{/js/scrollReveal.min.js}"></script>
+            <script defer th:src="@{/js/parallax.min.js}"></script>
+
+            <!-- Content Page  CSS fragment / exclusive, add href -->
+            <th:block layout:fragment="css"></th:block>
+
+            <!-- Content Page script fragment / exclusive, add href -->
+            <th:block layout:fragment="script"></th:block>
+
+            <style>
+                .portfolio-items img {
+                    width: 400px;
+                    height: 320px;
+                }
+            </style>
+        </head>
+    </th:block>
+</html>

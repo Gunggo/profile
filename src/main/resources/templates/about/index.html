@@ -1,52 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout/default_layout">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- css -->
+<!--	<th:block layout:fragment="css">-->
+<!--		<link rel="stylesheet" th:href="@{}"-->
+<!--	</th:block>-->
 
-	<!-- SITE TITLE -->
-	<title>방동현 포트폴리오입니다.</title>
-
-	<!-- FAV ICONS and WEBFONT -->
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicons/favicon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicons/favicon-120.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicons/ favicon-72.png">
-	<link rel="apple-touch-icon-precomposed" href="images/favicons/favicon-57.png">
-	<link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,600|Poppins:400,500,700' rel='stylesheet' type='text/css'>
-
-	<!-- ICON FONT -->
-	<link rel="stylesheet" href="assets/icons/styles.css">
-
-	<!-- Third Party CSS including Bootstrap -->
-	<link rel="stylesheet" href="css/third-party.css">
-
-	<!-- STYLESHEETS -->
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/responsive.css">
-
-	<!--[if lt IE 9]>
-	<script defer src="js/html5shiv.js"></script>
-    <![endif]-->
-
-	<!-- =========================
- 	JS SCRIPTS
-	============================== -->
-	<script defer src="js/jquery-1.11.3.min.js"></script>
-	<script defer src="js/third-party-scripts.js"></script>
-	<script defer src="js/custom.js"></script>
-
-	<style>
-		.portfolio-items img {
-			width: 400px;
-			height: 320px;
-		}
-	</style>
-
-</head>
-
-<body>
-
+<div layout:fragment="content">
 	<!-- =========================
      PRE LOADER
 	============================== -->
@@ -68,43 +31,6 @@
 
 		<div class="color-overlay">
 			<!-- COLOR OVERLAY -->
-
-			<!-- NAVIGATION -->
-			<div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-
-						<!-- NAVBAR EXPAND COLLAPSE ON MOBILE -->
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#alexis-navigation">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon icon-menu"></span>
-						</button>
-
-						<!-- LOGO -->
-						<a class="navbar-brand" href="#">
-							<img src="images/profile/logo.png" alt="LOGO">
-						</a>
-
-					</div>
-
-					<div class="navbar-collapse collapse" id="alexis-navigation">
-						<!-- NAVIGATION LINK -->
-						<ul class="nav navbar-nav navbar-right main-navigation" id="internal-scroll">
-							<li><a href="#home">Home</a>
-							</li>
-							<li><a href="#section1">About</a>
-							</li>
-							<li><a href="#section2">Skils</a>
-							</li>
-							<li><a href="#section3">Portfolio</a>
-							</li>
-						</ul>
-					</div>
-
-				</div>
-				<!-- /END CONTAINER -->
-			</div>
-			<!-- /END NAIVATION -->
 
 			<div class="container">
 				<div class="row">
@@ -140,7 +66,7 @@
 				<!-- FEATURED IMAGE AREA -->
 				<div class="col-lg-6 visible-lg">
 					<div class="featured-image red-gradient-overlay">
-						<img src="images/profile/london.jpg" alt="">
+						<img th:src="@{/images/profile/london.jpg}" alt="">
 						<!-- ABOUT US FEATURED IMAGE -->
 						<div class="image-border">
 						</div>
@@ -306,7 +232,7 @@
 						<figure class="effect-zoe wow fadeInLeft" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
 
 							<!-- PROJECT IMAGE and LINK -->
-							<a href="/project1" title="Click to view details" class="more"><img src="images/projects/socketChat.png" alt="">
+							<a th:href="@{/about/project1}" title="Click to view details" class="more"><img th:src="@{/images/projects/socketChat.png}" alt="">
 								<p class="description">
 									<span class="icon icon-plus"></span>
 								</p>
@@ -335,7 +261,7 @@
 						<figure class="effect-zoe wow fadeInDown" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
 
 							<!-- PROJECT IMAGE and LINK -->
-							<a href="/project2" title="Click to view details" class="more"><img src="images/projects/board.png" alt="">
+							<a th:href="@{/about/project2}" title="Click to view details" class="more"><img th:src="@{/images/projects/board.png}" alt="">
 								<p class="description">
 									<span class="icon icon-plus"></span>
 								</p>
@@ -364,7 +290,7 @@
 						<figure class="effect-zoe wow fadeInRight" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
 
 							<!-- PROJECT IMAGE and LINK -->
-							<a href="/project3" title="Click to view details" class="more"><img src="images/projects/dog2.png" alt="">
+							<a th:href="@{/about/project3}" title="Click to view details" class="more"><img th:src="@{/images/projects/dog2.png}" alt="">
 								<p class="description">
 									<span class="icon icon-plus"></span>
 								</p>
@@ -393,7 +319,7 @@
 						<figure class="effect-zoe wow fadeInLeft" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.30s">
 
 							<!-- PROJECT IMAGE and LINK -->
-							<a href="/project4" title="Click to view details" class="more"><img src="images/projects/mailab.png" alt="">
+							<a th:href="@{/about/project4}" title="Click to view details" class="more"><img th:src="@{/images/projects/mailab.png}" alt="">
 								<p class="description">
 									<span class="icon icon-plus"></span>
 								</p>
@@ -431,57 +357,5 @@
 		</div>
 	</section>
 
-	<section class="get-in-touch" id="section10" style="padding-bottom: 0;">
-		<div class="container" style="margin-left: 0; margin-right: 0; width: 100%;">
-
-			<!-- FOOTER -->
-			<div class="row no-gutters">
-				<div class="footer clearfix">
-
-					<div class="col-lg-3 col-md-3 col-lg-offset-2 col-md-offset-2">
-						<div class="footer-col">
-							<h6 class="green-text">Address</h6>
-							<p class="white-text">
-								경기도 부천시 오정구 원종동
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-3">
-						<div class="footer-col">
-							<h6 class="purple-text">E-Mail</h6>
-							<p class="white-text">
-								gusehdqkd@naver.com
-							</p>
-						</div>
-					</div>
-
-					<div class="col-lg-3 col-md-3">
-						<div class="footer-col">
-							<div class="social-icons">
-								<a href="https://www.facebook.com/gusehdqkd" target="_blank"><span class="icon icon-sb-facebook"></span></a>
-								<a href="https://www.instagram.com/gusehdkd" target="_blank" ><span class="icon icon-sb-instagram"></span></a>
-								<a href="https://github.com/Gunggo" target="_blank"><span class="icon icon-github-alt"></span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="four-lines">
-					<div class="line red-line-bottom">
-					</div>
-					<div class="line green-line-bottom">
-					</div>
-					<div class="line purple-line-bottom">
-					</div>
-					<div class="line yellow-line-bottom">
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
-
-</body>
-
+</div>
 </html>

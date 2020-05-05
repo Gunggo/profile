@@ -19,4 +19,14 @@ public class WebRestController {
                 .findFirst()
                 .orElse("");
     }
+
+    @GetMapping("/record")
+    public String record() {
+        return "record";
+    }
+
+    @GetMapping("/join")
+    public String join() {
+        return "join";
+    }
 }

@@ -1,0 +1,41 @@
+<html lang="ko"
+    xmlns:th="http://www.thymleaf.org">
+
+    <!--headerFragment-->
+    <div th:fragment="headerFragment">
+        <!-- NAVIGATION -->
+        <div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <!-- NAVBAR EXPAND COLLAPSE ON MOBILE -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#alexis-navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon icon-menu"></span>
+                    </button>
+
+                    <!-- LOGO -->
+                    <a class="navbar-brand" href="/">
+                        <img th:src="@{/images/profile/logo.png}" alt="LOGO">
+                    </a>
+
+                </div>
+
+                <div class="navbar-collapse collapse" id="alexis-navigation">
+                    <!-- NAVIGATION LINK -->
+                    <ul class="nav navbar-nav navbar-right main-navigation" id="internal-scroll">
+                        <li><a href="/">Home</a>
+                        </li>
+                        <li><a href="/record">record</a>
+                        </li>
+                        <li><a href="/join">join</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /END CONTAINER -->
+        </div>
+        <!-- /END NAIVATION -->
+    </div>
+</html>
