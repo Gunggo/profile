@@ -1,19 +1,26 @@
+spring:
+  profiles:
+    active: local # 기본 환경 선택
+
 # local 환경
 ---
 spring:
   profiles: local
-  thymeleaf:
-    mode: HTML
-    encoding: UTF-8
-    check-template-location: true
-    prefix: classpath:/templates
-    suffix: .html
-    cache: false
-  http:
-    encoding:
-      charset: UTF-8
-      force: true
+
   devtools:
     livereload:
       enabled: true
       port: 35729
+
+# real 환경
+---
+spring:
+  profiles: set1
+server:
+  port: 8081
+
+---
+spring:
+  profiles: set2
+server:
+  port: 8082

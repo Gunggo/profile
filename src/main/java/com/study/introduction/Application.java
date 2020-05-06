@@ -8,7 +8,8 @@ public class Application {
 
     public static final String APPLICATION_LOCATIONS = "spring.config.location="
             + "classpath:application.yml,"
-            + "/app/config/spring-portfolio/real-application.yml";
+            + "classpath:realApplication.yml";
+//            + "/app/config/spring-portfolio/real-application.yml";
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(Application.class)
