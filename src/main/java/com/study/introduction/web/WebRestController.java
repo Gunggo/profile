@@ -20,8 +20,4 @@ public class WebRestController {
                 .orElse("");
     }
 
-    @GetMapping("/join")
-    public String join() {
-        return "join";
-    }
 }
