@@ -4,5 +4,10 @@
       "name": "spring.profiles.thymeleaf.mode",
       "type": "java.lang.String",
       "description": "Description for spring.profiles.thymeleaf.mode."
-  }
-] }
+    },
+    {
+      "name": "spring.datasource.drvier-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.drvier-class-name."
+    }
+  ] }

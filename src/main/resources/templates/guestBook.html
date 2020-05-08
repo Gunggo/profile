@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default_layout">
+
+<th:block layout:fragment="css">
+    <style>
+        .card-body {
+            margin-top: 95px;
+            padding-top: 60px;
+            text-align: left;
+        }
+
+        .form-group {
+            border-bottom: 1px solid #e2e2e2;
+        }
+
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+    <div class="container">
+        <div class="card-body">
+
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <div>
+                        <p>
+                            방***
+                        </p>
+                    </div>
+                    <div>
+                        <p>오늘도 만족하고 갑니다.</p>
+                    </div>
+                    <div>
+                        <p style="color: #666;">2020-03-23 17:17:34</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</html>

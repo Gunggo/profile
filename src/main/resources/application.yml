@@ -2,6 +2,12 @@ spring:
   profiles:
     active: local # 기본 환경 선택
 
+  datasource:
+    url: jdbc:log4jdbc:mariadb://studywebservice.cdbsdzraucna.ap-northeast-2.rds.amazonaws.com:3306/portfolio
+    username: admin
+    password: "*Qkdehd6148"
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+
 # local 환경
 ---
 spring:
