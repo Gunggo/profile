@@ -7,6 +7,9 @@ import java.util.List;
 public interface MemberService {
 
     /* 회원목록 조회 */
-    public List<MemberBean> selectMemberList() throws Exception;
+    List<MemberBean> selectMemberList() throws Exception;
+
+    /* 로그인 */
+    MemberBean login(MemberBean memberBean) throws Exception;
 
 }

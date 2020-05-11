@@ -3,30 +3,13 @@ spring:
     active: local # 기본 환경 선택
 
   datasource:
-    url: jdbc:log4jdbc:mariadb://studywebservice.cdbsdzraucna.ap-northeast-2.rds.amazonaws.com:3306/portfolio
-    username: admin
-    password: "*Qkdehd6148"
-    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-
-# local 환경
----
-spring:
-  profiles: local
-
-  devtools:
-    livereload:
-      enabled: true
-      port: 35729
-
-# real 환경
----
-spring:
-  profiles: set1
-server:
-  port: 8081
-
----
-spring:
-  profiles: set2
-server:
-  port: 8082
+      url: jdbc:log4jdbc:mariadb://studywebservice.cdbsdzraucna.ap-northeast-2.rds.amazonaws.com:3306/portfolio
+      username: admin
+      password: "*Qkdehd6148"
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#      driver-class-name: org.mariadb.jdbc.Driver
+mybatis:
+  type-aliases-package: com.study.introduction.**.mapper
+  mapper-locations: com.study.introduction.**.mapper.*.xml
+  configuration:
+    map-underscore-to-camel-case: true

@@ -43,16 +43,22 @@ dependencies {
     // mysql
     runtimeOnly 'mysql:mysql-connector-java'
     // mriadb
-    compile("org.mariadb.jdbc:mariadb-java-client")
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
     // mybatis
-    compile "org.springframework.boot:spring-boot-starter-jdbc"
-    compile "org.mybatis:mybatis:3.3.0"
-    compile "org.mybatis:mybatis-spring:1.2.3"
-    // log4jdbc
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+    // log4j
     implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 
 }
 
 test {
     useJUnitPlatform()
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/resources", "src/main/java"
+        }
+    }
 }

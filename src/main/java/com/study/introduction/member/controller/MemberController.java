@@ -1,20 +1,24 @@
 package com.study.introduction.member.controller;
 
 import com.study.introduction.member.bean.MemberBean;
+import com.study.introduction.member.mapper.MemberMapper;
 import com.study.introduction.member.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
+
 @Controller
+@RequiredArgsConstructor
+@RequestMapping("/member")
 public class MemberController {
 
-    @Autowired
-    MemberService memberService;
+    private final MemberService memberService;
 
     @GetMapping("/login")
     public String login() {
@@ -40,3 +44,4 @@ public class MemberController {
         return "/test";
     }
 }
+
