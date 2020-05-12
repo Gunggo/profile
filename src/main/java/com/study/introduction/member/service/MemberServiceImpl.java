@@ -13,6 +13,8 @@ import java.util.List;
 @Transactional
 public class MemberServiceImpl implements MemberService {
 
+    private static final String ROLE_PREFIX = "ROLE_";
+
     private final MemberMapper memberMapper;
 
     /* 회원목록 조회 */
