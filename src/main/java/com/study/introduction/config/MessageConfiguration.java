@@ -1,5 +1,6 @@
 package com.study.introduction.config;
 
+import lombok.RequiredArgsConstructor;
 import net.rakugakibox.util.YamlResourceBundle;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;

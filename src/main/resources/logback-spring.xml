@@ -3,8 +3,8 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <!-- 좀 더 보기 좋은 MyBatis 쿼리 Log : log4jdbc -->
-    <logger name="jdbc.sqlonly" level="debug" />
-    <logger name="jdbc.sqltiming" level="off" />
+    <logger name="jdbc.sqlonly" level="off" />
+    <logger name="jdbc.sqltiming" level="debug" />
     <logger name="jdbc.audit" level="off" />
     <logger name="jdbc.resultset" level="off" />
     <logger name="jdbc.resultsettable" level="debug" />

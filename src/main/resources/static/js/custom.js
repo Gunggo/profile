@@ -4,7 +4,7 @@
    PRE LOADER
 =================================== */
 // makes sure the whole site is loaded
-jQuery(window).load(function () {
+jQuery(window).on('load',function() {
 	
 	'use strict';
         // will first fade out the loading animation

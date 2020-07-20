@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default_layout">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/summernote-lite.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script defer th:src="@{/js/summernote-lite.js}"></script>
+    <script defer th:src="@{/js/summernote-ko-KR.js}"></script>
+
+    <script type="text/javascript">
+
+
+        onload = function() {
+            $('#record-content').summernote({
+                // height: 300,                 // 에디터 높이
+                minHeight: 500,             // 최소 높이
+                maxHeight: null,             // 최대 높이
+                focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+                lang: "ko-KR",					// 한글 설정
+                placeholder: '최대 2048자까지 쓸 수 있습니다',	//placeholder 설정
+                tooltip: false, // 툴팁 비활성화
+                callbacks: { // 이미지 첨부
+                    onImageUpload: function (files) {
+                        uploadImg(files[0],this);
+                    }
+                }
+            });
+        };
+
+        /**
+         * 이미지 파일 업로드
+         */
+        function uploadImg(file, editor) {
+            data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                data : data,
+                type : "post",
+                url : "/recordImg",
+                contentType : false,
+                processData : false,
+                success : function(data) {
+                    //항상 업로드된 파일의 url이 있어야 한다.
+                    $(editor).summernote('insertImage', data.url);
+                    if( $("#record-thumb").val() === '') {
+                        $("#record-thumb").val(data.url);
+                    }
+                }
+            });
+        }
+
+        function insertRecord() {
+            $.ajax({
+                url : "/record",
+                type : "post",
+                data : {
+                    recordType : $('#record-type-box').val(),
+                    recordThumb : $("#record-thumb").val(),
+                    recordTitle : $('#record-title').val(),
+                    recordContent : $('#record-content').val()
+                },
+                dataType : "json",
+                success : function (data) {
+                    if(data.result === "ok") {
+                        alert(data.resultMsg);
+                        location.href = "/records";
+                    } else {
+                        alert(data.resultMsg)
+                    }
+                }
+            })
+        }
+
+    </script>
+</th:block>
+
+<div layout:fragment="content">
+    <div class="container" style="margin-top: 95px;">
+        <div class="content">
+            <div>
+                <div class="form-group col-md-12">
+                    <label for="record-title" class="control-label col-lg-2" style="text-align: left;">제목</label>
+                    <div class="col-lg-6">
+                        <input type="text" id="record-title" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="record-type-box" class="control-label col-lg-2" style="text-align: left;">게시판</label>
+                    <div class="col-lg-3">
+                        <select id="record-type-box" class="select2-container" style="width: 100%;">
+                            <option th:each="code : ${codeList}" th:value="${code.code}" th:text="${code.codeName}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <form method="post">
+                    <textarea id="record-content" name="editordata"></textarea>
+                </form>
+            </div>
+            <div class="button-group col-md-12" style="text-align: right;">
+                <button type="button" onclick="insertRecord()">등록</button>
+            </div>
+        </div>
+        <div th:replace="fragment/recordCate :: cateFragment"></div>
+        <input type="hidden" id="record-thumb">
+    </div>
+
+</div>
+</html>

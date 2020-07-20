@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default_layout">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+
+    <script defer th:src="@{/js/magnific-popup.js}"></script>
+
+    <script type="text/javascript">
+
+        // 이미지 팝업 레이어
+        window.onload = function() {
+            $('.record-content').magnificPopup({
+                delegate: 'img',
+                type: 'image',
+                closeOnContentClick: true,
+                mainClass: 'mfp-img-mobile',
+                image: {
+                    verticalFit: true
+                },
+                callbacks: {
+                    elementParse: function (item) {
+                        item.src = item.el.attr('src');
+                    }
+                }
+            });
+        };
+
+    </script>
+
+</th:block>
+
+<div layout:fragment="content">
+    <div class="container" style="margin-top: 95px;">
+        <div class="content">
+            <div>
+                <div class="form-group col-md-12 text-left">
+                    <label class="control-label col-lg-2" style="padding-left: 0;">제목</label>
+                    <div class="col-lg-6">
+                        <span th:text="${record.recordTitle}"></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 text-left">
+                    <label class="control-label col-lg-2" style="padding-left: 0;">게시판</label>
+                    <div class="col-lg-3">
+                        <span th:text="${record.recordType}"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12 record-content">
+                <div th:utext="${record.recordContent}"></div>
+            </div>
+            <div class="button-group col-md-12" style="text-align: right;">
+                <button type="button" th:onclick="|location.href='/record-form/${record.recordNo}'|">수정</button>
+                <button type="button" onclick="location.href='/records'">목록</button>
+            </div>
+        </div>
+        <div th:replace="fragment/recordCate :: cateFragment"></div>
+    </div>
+
+</div>
+
+</html>

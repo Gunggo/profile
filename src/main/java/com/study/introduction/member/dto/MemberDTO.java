@@ -1,14 +1,14 @@
-package com.study.introduction.member.bean;
+package com.study.introduction.member.dto;
 
+import com.study.introduction.common.CommonDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import java.util.Date;
 
 @Getter
 @Setter
 @ToString
-public class MemberBean {
+public class MemberDTO extends CommonDTO {
 
     /* 회원 No */
     private int mbNo;
@@ -18,9 +18,5 @@ public class MemberBean {
     private String mbPw;
     /* 회원 닉네임 */
     private String mbNm;
-    /* 회원가입 일 */
-    private Date regDt;
-    /* 회원정보 수정일 */
-    private Date updDt;
 
 }

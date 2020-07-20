@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.resource.PathResourceResolver;
 
 /*
     서버 보안설정
@@ -46,7 +48,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // jwt token으로 인증하니 세션 필요없음
                 .and()
                 .authorizeRequests() // 다음 리퀘스트에 대한 사용권한 체크
-                .antMatchers("/*/signin", "/*/signup").permitAll() // 가입 및 인증 주소는 누구나 접근가능
+                .antMatchers("/*/signin", "/*/signup","/index","/forgot","/test").permitAll() // 가입 및 인증 주소는 누구나 접근가능
                 .antMatchers(HttpMethod.GET, "/").permitAll() // 해당 패턴으로 시작하는 GET여ㅛ청은 누구나 접근가능
                 .anyRequest().hasRole("USER") // 그 외 나머지 요청은 모두 인증된 회원만 접근가능
                 .and()
@@ -58,9 +60,9 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                         UsernamePasswordAuthenticationFilter.class); // jwt token 필터를 id/password 인증 필터 전에 넣는다
     }
 
-    @Override // swagger resource 예외처리
+    @Override // swagger resource, 기본 페이지, css, js 예외처리
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**","/swagger-ui.html", "/webjars/**",
-                "/swagger/**","/","/login","/join","/forgot","/test");
+                "/swagger/**","/resources/**").anyRequest();
     }
 }

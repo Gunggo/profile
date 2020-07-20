@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--headerFragment-->
+<div th:fragment="cateFragment">
+    <div class="vertical-line"></div>
+    <div class="record-cate">
+        <div class="sidebar">
+            <!-- 카테고리 -->
+            <nav class="category">
+                <ul class="tt_category">
+                    <li class="">
+                        <a class="link_tit" href="/records">
+                            전체글
+                            <img src="https://t1.daumcdn.net/tistory_admin/assets/blog/da64009a6aa661dfd6ceca72d646b8128d4e5bfa/blogs/image/category/new_ico_1.gif?_version_=da64009a6aa661dfd6ceca72d646b8128d4e5bfa"
+                                 alt="N" style="vertical-align:middle;padding-left:2px;">
+                        </a>
+                        <ul class="category_list">
+                            <li th:each="code : ${codeList}">
+                                <a th:href="@{|/records/${code.code}|}" th:text="${code.codeName}" class="link_item">
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</html>

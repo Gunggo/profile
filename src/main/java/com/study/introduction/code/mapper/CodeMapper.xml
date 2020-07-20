@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.introduction.code.mapper.CodeMapper">
+
+    <!-- 게시글 목록 조회 -->
+    <select id="selectCodeList" resultType="com.study.introduction.code.dto.CodeDTO">
+        SELECT *
+        FROM code
+        WHERE code_grp_name = #{codeGrpName}
+    </select>
+
+</mapper>

@@ -67,6 +67,21 @@ dependencies {
     // Unit Test
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    
+    // Gson (return JSON)
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // jsoup (html 도큐멘트 추출)
+    implementation 'org.jsoup:jsoup:1.13.1'
+
+    // JODA TIME
+    implementation 'joda-time:joda-time:2.10.6'
+
+    // commons-io (파일 업로드)
+    implementation 'commons-io:commons-io:2.4'
+    implementation 'commons-fileupload:commons-fileupload:1.4'
+    implementation 'org.imgscalr:imgscalr-lib:4.2'
+
 }
 
 test {

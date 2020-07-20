@@ -1,10 +1,8 @@
 package com.study.introduction.member.controller;
 
-import com.study.introduction.member.bean.MemberBean;
-import com.study.introduction.member.mapper.MemberMapper;
+import com.study.introduction.member.dto.MemberDTO;
 import com.study.introduction.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +36,7 @@ public class MemberController {
     @GetMapping("/test")
     public String test(Model model) throws Exception{
 
-        List<MemberBean> memberList = memberService.selectMemberList();
+        List<MemberDTO> memberList = memberService.selectMemberList();
         model.addAttribute("memberList", memberList);
 
         return "/test";
